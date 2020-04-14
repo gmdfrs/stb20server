@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "7d6c976c-a22b-433d-b346-480d3986d490",
+		"name": "STB20_GOUMIDI",
+		"description": "API REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://{{server}}:8080/insert",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<stb:stb xmlns:stb=\"http://univ.fr/stb20\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://univ.fr/stb20 stb20.tp1.01.xsd \">\r\n  <stb:title>stb2</stb:title>\r\n  <stb:version>0.2</stb:version>\r\n  <stb:date>1989-11-05</stb:date>\r\n  <stb:description>description1</stb:description>\r\n  <stb:client>\r\n    <stb:entity>entity</stb:entity>\r\n    <stb:firstname>firstname</stb:firstname>\r\n    <stb:lastname>lastname</stb:lastname>\r\n    <stb:email>otot@otot.oto</stb:email>\r\n    <stb:email>toto@toto.tot</stb:email>\r\n    <stb:tel>+33 1 23 45 67 89</stb:tel>\r\n    <stb:tel>+33 1 10 10 10 11</stb:tel>\r\n  </stb:client>\r\n  <stb:team>\r\n    <stb:person>\r\n      <stb:firstname email=\"toto1@toto1.tot\" gender=\"Mr\" lastname=\"lastname1\">firstname1</stb:firstname> \r\n      <stb:function>devl1</stb:function>\r\n    </stb:person>\r\n    <stb:person>\r\n      <stb:firstname email=\"toto2@toto2.tot\" gender=\"Mr\" lastname=\"lastname2\">firstname2</stb:firstname> \r\n      <stb:function>function1</stb:function>\r\n      <stb:function>function2</stb:function>\r\n    </stb:person>\r\n  </stb:team>\r\n  <stb:detail>\r\n    <stb:feature name=\"name\" number=\"1\" section=\"1\">\r\n      <stb:description>description</stb:description>\r\n      <stb:priority>2</stb:priority>\r\n      <stb:delivery>2020-01-01</stb:delivery>\r\n    </stb:feature>\r\n    <stb:feature name=\"name2\" number=\"2\" section=\"2\">\r\n      <stb:description>description</stb:description>\r\n      <stb:priority>1</stb:priority>\r\n      <stb:delivery>2020-01-01</stb:delivery>\r\n    </stb:feature>\r\n  </stb:detail>\r\n</stb:stb>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{server}}:8080/insert",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"insert"
+					]
+				},
+				"description": "Ajout d’une STB dans la base valide"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/resume",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/resume",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"resume"
+					]
+				},
+				"description": "Affiche la liste des STB stockées"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/resume",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/resume",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"resume"
+					]
+				},
+				"description": "Affiche la liste des STB stockées avec POST"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/help",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/help",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"help"
+					]
+				},
+				"description": "page d'aide"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				},
+				"description": "page d'accueil"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/stb?id=1",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/stb?id=1",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"stb"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "le contenu complet de la STB valide"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/stb?id=0",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/stb?id=0",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"stb"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "0"
+						}
+					]
+				},
+				"description": "le contenu complet de la STB erreur"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/htmlstb?id=0",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/htmlstb?id=0",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"htmlstb"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "0"
+						}
+					]
+				},
+				"description": "le contenu complet de la STB html non valide"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/htmlstb?id=1",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/htmlstb?id=1",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"htmlstb"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "le contenu complet de la STB html valide"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/delete?id=3",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/delete?id=3",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				},
+				"description": "Suppression d’un stb valide"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{server}}:8080/delete?id=0",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{server}}:8080/delete?id=0",
+					"protocol": "http",
+					"host": [
+						"{{server}}"
+					],
+					"port": "8080",
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "0"
+						}
+					]
+				},
+				"description": "Suppression d’un article non valide"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6a9c992b-0e5f-4b87-bcc0-086473cf1426",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "bc791f20-ad2c-4022-83bb-f46fd4172fc2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
