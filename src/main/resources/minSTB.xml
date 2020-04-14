@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stb:stb xmlns:stb="http://univ.fr/stb20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://univ.fr/stb20 stb20.tp1.01.xsd ">
+  <stb:title>stb</stb:title>
+  <stb:version>0.1</stb:version>
+  <stb:date>1989-11-05</stb:date>
+  <stb:description>description</stb:description>
+  <stb:client>
+    <stb:entity>entity</stb:entity>
+    <stb:firstname>firstname</stb:firstname>
+    <stb:email>toto@toto.tot</stb:email>
+  </stb:client>
+  <stb:team>
+    <stb:person>
+      <stb:firstname email="toto1@toto1.tot" gender="Mr" >firstname1</stb:firstname> 
+      <stb:function>devl1</stb:function>
+    </stb:person>
+    <stb:person>
+      <stb:firstname email="toto2@toto2.tot" gender="Mr" >firstname2</stb:firstname> 
+      <stb:function>function1</stb:function>
+      <stb:function>function2</stb:function>
+    </stb:person>
+  </stb:team>
+  <stb:detail>
+    <stb:feature name="name" number="1" section="1">
+      <stb:description>description</stb:description>
+      <stb:priority>2</stb:priority>
+    </stb:feature>
+    <stb:feature name="name2" number="2" section="2">
+      <stb:description>description</stb:description>
+      <stb:priority>1</stb:priority>
+    </stb:feature>
+  </stb:detail>
+</stb:stb>
