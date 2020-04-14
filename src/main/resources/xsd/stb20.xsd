@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://univ.fr/stb20"
+           xmlns="http://univ.fr/stb20"
+           elementFormDefault="qualified">
+           
+<xs:simpleType name="text32">
+<xs:restriction base="xs:string" >
+<xs:maxLength value="32"/>
+<xs:pattern value="[a-zA-Z0-9\s\-&apos;]*"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="text128">
+<xs:restriction base="xs:string" >
+<xs:maxLength value="128"/>
+<xs:pattern value="[a-zA-Z0-9\s\.,:;~@()\-&apos;&amp;#!?$*=]*"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="integer10">
+	<xs:restriction base="xs:int">
+		<xs:minInclusive value="0"/>
+		<xs:maxInclusive value="10"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="datetype">
+	<xs:restriction base="xs:string">
+       <xs:pattern value="\d{4}-((((01)|(03)|(05)|(07)|(08)|(10)|(12))-((0[1-9])|([1-2][0-9])|(3[0-1])))|(((04)|(06)|(09)|(11))-((0[1-9])|([1-2][0-9])|(30)))|(02-((0[1-9])|([1-2][0-9]))))"/>   						
+    </xs:restriction>
+</xs:simpleType>
+
+ <xs:simpleType name="gendertype">
+      <xs:restriction base="xs:string">
+       		 <xs:enumeration value="M." />
+       		 <xs:enumeration value="MMe" />
+       		 <xs:enumeration value="Miss" />
+       		 <xs:enumeration value="Mrs" />
+       		 <xs:enumeration value="Mr" />
+      </xs:restriction>
+ </xs:simpleType>
+ 
+<xs:simpleType name="emailtype">
+    <xs:restriction base="xs:token">
+        <xs:pattern value="[^\.]([\.]?[a-zA-Z0-9_\-]+)*@([\.]?[a-zA-Z0-9_\-]+)*\.[a-zA-z]{2,3}"/>     
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="teltype">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\d{10})|(\d{2}\s\d{2}\s\d{2}\s\d{2}\s\d{2})|(\d\s\d{3}\s\d{3}\s\d{3})|(\+33\s\d\s\d{2}\s\d{2}\s\d{2}\s\d{2})"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:element name="firstname">
+	<xs:complexType>
+		<xs:simpleContent>
+			<xs:extension base="text32">
+				<xs:attribute name="gender" type="gendertype" use="required"/>
+				<xs:attribute name="lastname" type="text32" use="optional"/>
+				<xs:attribute name="email" type="emailtype" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="feature">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="description" type="text128"/>
+			<xs:element name="priority" type="integer10"/>
+			<xs:element name="delivery" type="datetype"  minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+				<xs:attribute name="name" type="text32" use="required"/>
+				<xs:attribute name="section" type="xs:int" use="required"/>
+				<xs:attribute name="number" type="xs:int" use="required"/>
+	</xs:complexType>
+
+</xs:element>
+
+<xs:element name="person" >
+	<xs:complexType>
+		<xs:sequence>
+			 <xs:element ref="firstname" minOccurs="1" maxOccurs="1"/>
+			 <xs:element name="function" type="text32" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+<xs:element name="client" >
+	<xs:complexType>
+		<xs:sequence>
+			 <xs:element name="entity" type="text32" minOccurs="1" maxOccurs="1" />
+			 <xs:element name="firstname" type="text32" minOccurs="1" maxOccurs="1" />
+			 <xs:element name="lastname" type="text32"  minOccurs="0" maxOccurs="1" />
+		<xs:choice minOccurs="1" maxOccurs="unbounded" >
+			<xs:element name="email" type="emailtype"  />
+			<xs:element name="tel" type="teltype"/>
+		</xs:choice>
+		</xs:sequence>	 
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="team" >
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="person" minOccurs="2" maxOccurs="8"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="detail" >
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element ref="feature" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="stb">
+	<xs:complexType>
+		<xs:all>
+			 <xs:element name="title" type="text128" />
+			 <xs:element name="version" type="xs:decimal" default="0.1" />
+			 <xs:element name="date" type="datetype" />
+			 <xs:element name="description" type="text128" />
+			 <xs:element ref="client" />
+			 <xs:element ref="team" />
+			 <xs:element ref="detail" />
+		</xs:all>
+	</xs:complexType>
+</xs:element>	
+</xs:schema>
+
